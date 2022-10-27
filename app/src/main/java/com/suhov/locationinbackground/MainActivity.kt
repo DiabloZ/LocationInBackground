@@ -19,6 +19,9 @@ import androidx.core.app.ActivityCompat
 import com.suhov.locationinbackground.ui.theme.LocationInBackgroundTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val defaultRequestCode = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityCompat.requestPermissions(
@@ -27,13 +30,13 @@ class MainActivity : ComponentActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
             ),
-            0
+            defaultRequestCode
         )
         setContent {
             LocationInBackgroundTheme {
                 DefaultPreview(
-                    onStartClick = { switchService(LocationService.ACTION_START) },
-                    onStopClick = { switchService(LocationService.ACTION_STOP) }
+                    onStartClick = { switchService(LocService.ACTION_START) },
+                    onStopClick = { switchService(LocService.ACTION_STOP) }
                 )
             }
         }
@@ -55,12 +58,12 @@ fun DefaultPreview(onStartClick: () -> Unit = {}, onStopClick: () -> Unit = {}) 
             modifier = Modifier.fillMaxSize()
         ) {
             Button(onClick = onStartClick) {
-                Text(text = "Start")
+                Text(text = MainScreen.startButton)
             }
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(onClick = onStopClick) {
-                Text(text = "Stop")
+                Text(text = MainScreen.stopButton)
             }
         }
     }

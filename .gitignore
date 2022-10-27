@@ -4,3 +4,6 @@
 /build/*
 /.idea/*
 /.gradle/*
+/.idea/
+/build/
+/.gradle/

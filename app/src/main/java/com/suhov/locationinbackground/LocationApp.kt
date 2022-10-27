@@ -11,8 +11,8 @@ class LocationApp: Application() {
         super.onCreate()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             val channel = NotificationChannel(
-                "location",
-                "Location",
+                Notification.chanelID,
+                Notification.chanelName,
                 NotificationManager.IMPORTANCE_LOW
             )
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
